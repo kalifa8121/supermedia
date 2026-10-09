@@ -19,7 +19,7 @@ socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
 def get_db():
     db_url = os.environ.get("DATABASE_URL")
     if not db_url:
-        raise RuntimeError("DATABASE_URL variable-ni Neon DB hin saagamtine!")
+        raise RuntimeError("DATABASE_URL environment variable is not set!")
     return psycopg.connect(db_url, row_factory=dict_row)
 
 # Database Initialization
